@@ -1,0 +1,60 @@
+def solve_puzzle0():
+    # Puzzle 0
+    for a in [True, False]:  # A can be either a knight (True) or a knave (False)
+        if a:  # A is a knight
+            print("A is a knight.")
+        else:  # A is a knave
+            print("A is a knave.")
+
+def solve_puzzle1():
+    # Puzzle 1
+    for a in [True, False]:  # A can be either a knight (True) or a knave (False)
+        for b in [True, False]:  # B can be either a knight (True) or a knave (False)
+            if a and b:  # Both A and B are knights
+                print("A and B are knaves.")
+            else:  # At least one of them is a knave
+                print("At least one of them is a knight.")
+
+def solve_puzzle2():
+    # Puzzle 2
+    for a in [True, False]:  # A can be either a knight (True) or a knave (False)
+        for b in [True, False]:  # B can be either a knight (True) or a knave (False)
+            if a == b:  # A and B are of the same kind
+                print("A and B are of the same kind.")
+            else:  # A and B are of different kinds
+                print("A and B are of different kinds.")
+
+def solve_puzzle3():
+    # Puzzle 3
+    for a in [True, False]:  # A can be either a knight (True) or a knave (False)
+        for b in [True, False]:  # B can be either a knight (True) or a knave (False)
+            for c in [True, False]:  # C can be either a knight (True) or a knave (False)
+                if (a and b) or (not a and not b):
+                    # A's statement is true, either A is a knight and said "I am a knight",
+                    # or A is a knave and said "I am a knave"
+                    if b and not c:
+                        # B's first statement is true, A said "I am a knave"
+                        if not c:
+                            # B's second statement is true, C is a knave
+                            if a:
+                                # C's statement is true, A is a knight
+                                print("A is a knight.")
+                            else:
+                                # C's statement is false, A is a knave
+                                print("A is a knave.")
+                        else:
+                            # B's second statement is false, C is a knight
+                            print("C is a knight.")
+                else:
+                    # A's statement is false, it contradicts itself
+                    print("The puzzle is unsolvable.")
+
+# Solve each puzzle
+print("Puzzle 0:")
+solve_puzzle0()
+print("\nPuzzle 1:")
+solve_puzzle1()
+print("\nPuzzle 2:")
+solve_puzzle2()
+print("\nPuzzle 3:")
+solve_puzzle3()
